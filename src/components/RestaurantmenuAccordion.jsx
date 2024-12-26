@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RestaurantMenugridlist from "./RestaurantMenugridlist";
 
-const RestaurantmenuAccordion = ({ props }) => {
+const RestaurantmenuAccordion = ({ props ,resinfo }) => {
 
   let iscategory = false;
   if (props["@type"])
@@ -23,12 +23,12 @@ const RestaurantmenuAccordion = ({ props }) => {
       <>
       <div className="mt-7">
         <div className="flex justify-between font-bold" onClick={toggle}>
-          <h1 className={"font-bold text-" + (props["@type"] ? "xl" : "base")}>
+          <h1 className={"font-semibold sm:font-bold text-" + (props["@type"] ? "xl" : "base")}>
             {title} ( {itemCards?.length})
           </h1>
           <i className="fi fi-rr-angle-small-down"></i>
         </div>
-        {accordion && <RestaurantMenugridlist props={itemCards} />}
+        {accordion && <RestaurantMenugridlist props={itemCards}  resinfo={resinfo}/>}
          </div>
         <hr className={" my-5 border-"+(props["@type"] ? "4" : "[10px]")} />
        
@@ -43,7 +43,7 @@ const RestaurantmenuAccordion = ({ props }) => {
         {categories.map((item, i) => (
 
           <div key={i}>
-            <RestaurantmenuAccordion props={item} />
+            <RestaurantmenuAccordion props={item}  />
           </div>
         )
         )}

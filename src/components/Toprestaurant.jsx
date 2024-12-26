@@ -18,17 +18,17 @@ function TopRestaurant({ Data=[], title }) {
     Data && (
       <div className="mt-10  w-full">
         <div className="flex justify-between mt-5">
-          <p className="font-bold text-2xl">{title}</p>
+          <p className="font-bold text-xl md:text-2xl">{title}</p>
           <div className="flex gap-3">
             <div
               onClick={handlePrev}
-              className="cursor-pointer bg-gray-200 rounded-full w-9 h-9 flex justify-center items-center"
+              className="cursor-pointer bg-gray-200 rounded-full  w-7 md:w-9 h-7 md:h-9  flex justify-center items-center"
             >
               <i className="fi text-2xl mt-1 fi-rr-arrow-small-left"></i>
             </div>
             <div
               onClick={handleNext}
-              className="cursor-pointer bg-gray-200 rounded-full w-9 h-9 flex justify-center items-center"
+              className="cursor-pointer bg-gray-200 rounded-full  w-7 md:w-9 h-7 md:h-9  flex justify-center items-center"
             >
               <i className="fi text-2xl mt-1 fi-rr-arrow-small-right"></i>
             </div>
