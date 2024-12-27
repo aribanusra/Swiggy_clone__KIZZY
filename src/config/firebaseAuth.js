@@ -9,15 +9,8 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDJV9dH72xNUIXWkn2fgB0_66NapfAgVFc",
-  authDomain: "kizzy-food-delivery-app.firebaseapp.com",
-  projectId: "kizzy-food-delivery-app",
-  storageBucket: "kizzy-food-delivery-app.firebasestorage.app",
-  messagingSenderId: "663210574478",
-  appId: "1:663210574478:web:0ae9a09f5346079ab6ffdf"
-};
 
+const firebaseConfig = JSON.parse(import.meta.env.VITE_KEY)
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
