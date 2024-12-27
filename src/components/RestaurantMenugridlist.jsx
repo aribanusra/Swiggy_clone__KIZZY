@@ -29,7 +29,7 @@ const RestaurantMenugridlist = ({ props, resinfo }) => {
 
   return (
     <>
-      <div className='my-5'>
+      <div className='my-5 flex flex-col'>
         {props.map(({ card: { info } }, i) => (
           <div key={i} className='px-8'>
             <div className="relative w-full">
@@ -69,6 +69,12 @@ const RestaurantMenugridlist = ({ props, resinfo }) => {
               </div>
             </div>
             <hr className="mb-8" />
+
+
+
+
+
+
             {diffrestro && (
               <div className="w-[520px] h-[204px] flex flex-col gap-2 left-[33%] p-8 border z-50 shadow-md fixed bottom-10 bg-white">
                 <h1>Items already in cart</h1>
@@ -93,6 +99,14 @@ const RestaurantMenugridlist = ({ props, resinfo }) => {
                 </div>
               </div>
             )}
+
+
+
+
+
+
+
+
           </div>
 
         ))}

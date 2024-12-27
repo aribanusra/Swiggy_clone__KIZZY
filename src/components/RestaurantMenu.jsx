@@ -4,6 +4,7 @@ import Restaurantmenucard from "./restaurantmenucard";
 import Restaurantmenugrid from "./RestaurantmenuAccordion";
 import RestaurantmenuDeals from "./RestaurantmenuDeals";
 import RestaurantmenuAccordion from "./RestaurantmenuAccordion";
+import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
@@ -15,6 +16,10 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     fetchData();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', 
+    })
   }, []);
 
   const fetchData = async () => {
@@ -25,7 +30,7 @@ const RestaurantMenu = () => {
         
     );
     const res = await json.json();
-console.log(res);
+
    
     const headingInfo = res?.data?.cards.find((data) => data?.card?.card?.["@type"].includes("swiggy.gandalf.widgets.v2.TextBoxV2")
     )?.card?.card?.text;
@@ -50,27 +55,33 @@ console.log(res);
 
   return (
     <>
+    {
+      datarestro5.length ? 
       <div className="w-full">
-        <div className="w-[95%] xl:w-1/2 mx-auto pt-8">
-          <p className="text-[0.7rem] hover:cursor-pointer text-gray-700 hover:text-black">
-            <Link to={"/"}>Home </Link>/ <Link to={"/"}>{cardData2.city}</Link>{" "}
-            / {cardData2.name}
-          </p>
-          <div className="text-2xl font-extrabold text-gray-900 py-7">
-            {heading1}
-          </div>
-     { cardData2 &&    <Restaurantmenucard info={cardData2} />}
-
-       {  offer3 && <RestaurantmenuDeals info={offer3} />}
-          <div>
-            
-            {datarestro5.map(({ card : { card} }, i) => (
-              <RestaurantmenuAccordion props={card} key={i} resinfo={cardData2}/> //card contains all 15 card detructured and resinfo has 
-            ))}
-          </div>
-        
+      <div className="w-[95%] xl:w-1/2 mx-auto pt-8">
+        <p className="text-[0.7rem] hover:cursor-pointer text-gray-700 hover:text-black">
+          <Link to={"/"}>Home </Link>/ <Link to={"/"}>{cardData2.city}</Link>{" "}
+          / {cardData2.name}
+        </p>
+        <div className="text-2xl font-extrabold text-gray-900 py-7">
+          {heading1}
         </div>
+   { cardData2 &&    <Restaurantmenucard info={cardData2} />}
+
+     {  offer3 && <RestaurantmenuDeals info={offer3} />}
+        <div>
+          
+          {datarestro5.map(({ card : { card} }, i) => (
+            <RestaurantmenuAccordion props={card} key={i} resinfo={cardData2}/> //card contains all 15 card detructured and resinfo has 
+          ))}
+        </div>
+      
       </div>
+    </div>
+    :
+    <ShimmerMenu/>
+    }
+     
     </>
   );
 };

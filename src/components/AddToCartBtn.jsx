@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 
 const AddToCartBtn = ({info , resinfo , differentrestro}) => {
+
     const cart = useSelector ((state)=>state.cartSlice.cart)
     const  getResInfoFromLocalStore= useSelector ((state)=>state.cartSlice.res)
     const dispatch = useDispatch()

@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import RestaurantMenu from "./components/RestaurantMenu"
 import Header from "./components/Header"
 import Cartdata from "./components/Cartdata"
+import Onyourmindsearch from './components/onyourmindsearch'
 import { useSelector } from "react-redux"
 import Searchtab from "./components/Searchtab"
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/restaurantmenu/:id" element={<RestaurantMenu />}></Route>
             <Route path="/cart" element={<Cartdata />}></Route>
             <Route path="/search" element={<Searchtab />}></Route>
+            <Route path="/dishes/:id" element={<Onyourmindsearch />}></Route>
             <Route path="*" element={<h1>page not found</h1>}></Route>
           </Route>
         </Routes>

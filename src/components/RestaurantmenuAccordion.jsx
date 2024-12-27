@@ -43,7 +43,7 @@ const RestaurantmenuAccordion = ({ props ,resinfo }) => {
         {categories.map((item, i) => (
 
           <div key={i}>
-            <RestaurantmenuAccordion props={item}  />
+            <RestaurantmenuAccordion props={item}  resinfo={resinfo}  />
           </div>
         )
         )}

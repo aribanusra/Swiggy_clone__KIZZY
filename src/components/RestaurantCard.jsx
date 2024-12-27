@@ -11,7 +11,7 @@ const RestaurantCard = (data) => {
 
       <Link to={`/restaurantmenu/${data?.link.split("/")[5]}`}>
 
-        <div className="w-72 sm:w-56 relative  rounded overflow-hidden hover:scale-[0.95] ">
+      <div className="w-72 sm:w-64 md:w-72 lg:w-64 xl:w-72 relative  rounded overflow-hidden hover:scale-[0.95] ">
 
           <img className="rounded-3xl w-full h-48 object-cover" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + data?.data?.cloudinaryImageId
           } alt="Restaurant Image" />
