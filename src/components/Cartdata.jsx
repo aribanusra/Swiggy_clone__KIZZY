@@ -66,7 +66,7 @@ const Cartdata = () => {
         toast.success("order placed");
     }
 
-    let totalprice = cart.reduce((acc, curr) => acc + curr.price / 100 || curr.defaultPrice / 100, 0)
+    let totalprice = cart.reduce((acc, curr) => acc + curr.price / 100  * curr.qty || curr.defaultPrice / 100  * curr.qty, 0)
 
     return (
         <>
@@ -100,7 +100,7 @@ console.log(id);
                                             <i onClick={qty>1 ? ()=>decrement(id) :()=>remove(i) } className="fi fi-tr-square-minus cursor-pointer"></i>
                                             <span>{qty}</span>
                                             <i onClick={()=>increment(id)} className="fi fi-tr-square-plus cursor-pointer" ></i>                                           
-                                            <p className="text-gray-700 font-semibold text-sm sm:text-lg w-14">  ₹  {defaultPrice / 100 || price / 100}{" "} </p>
+                                            <p className="text-gray-700 font-semibold text-sm sm:text-lg w-14">  ₹  {defaultPrice / 100 * qty || price / 100  * qty}{" "} </p>
                                             <i onClick={()=>remove(i)} className="fi fi-ss-trash-xmark text-red-500"></i>
 
                                         </div>
