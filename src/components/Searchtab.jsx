@@ -59,7 +59,7 @@ function Searchtab() {
     }, [searchQuery]);
 
     return (
-        <div className="flex-col flex  items-center w-full h-[100vh] mt-10 md:w-[800px] mx-auto">
+        <div className="flex-col flex  items-center w-full mt-10 md:w-[800px] mx-auto">
             <div className="lg:w-full w-[85%] md:w-[70%] mx-auto relative">
                 <i className="fi fi-rr-angle-small-left text-2xl ml-2 mt-1 absolute top-1/2 -translate-y-1/2"></i>
                 <i className="fi fi-rr-search absolute top-1/2 right-0 -translate-y-1/2 mr-5"></i>

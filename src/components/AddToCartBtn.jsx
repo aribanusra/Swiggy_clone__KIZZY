@@ -28,7 +28,7 @@ const AddToCartBtn = ({info , resinfo , differentrestro}) => {
             
         }else {
            
-           toast.error("Item already Added ")
+           toast.error("Go to cart to add more item 😊")
         }
     }
     return (

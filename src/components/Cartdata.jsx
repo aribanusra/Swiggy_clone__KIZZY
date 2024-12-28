@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { deletecartitem ,clearcart} from '../utils/cartSlice'
+import { deletecartitem,incrementqty ,decrementqty ,clearcart} from '../utils/cartSlice'
 import { toggleLogin} from '../utils/togglesclice';
 import toast from 'react-hot-toast';
 import cartempty from '../assets/cartempty.avif'
 const Cartdata = () => {
     const userData = useSelector((state) => state.authSlice.userData);
     const cart = useSelector ((state)=>state.cartSlice.cart)
+   
     let resinfo = useSelector ((state)=>state.cartSlice.res)
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -33,6 +34,13 @@ const Cartdata = () => {
 
     function clearCart() {
         dispatch(clearcart())
+    }
+
+    function increment(id){
+     dispatch(incrementqty(id))
+    }
+    function decrement(id){
+        dispatch(decrementqty(id))
     }
 
     if (cart.length === 0) {
@@ -77,9 +85,9 @@ const Cartdata = () => {
                     </Link>
                     <hr className="my-10" />
                     <div>
-                        {cart.map(({ name, defaultPrice, price, itemAttribute, ratings: { aggregatedRating: { rating, ratingCountV2 }, }, description = "", imageId, }, i) => {
+                        {cart.map(({id, name, defaultPrice, price, itemAttribute,  description = "" ,qty}, i) => {
                             // const [isMore, setIsMore] = useState(false);
-
+console.log(id);
                             let trimDes = description.substring(0, 138) + "...";
                             return (
                                 
@@ -89,8 +97,12 @@ const Cartdata = () => {
                                                 alt=""  />
                                             <h2 className="text-gray-700 font-semibold text-sm sm:text-lg">  {name} </h2>
                                             </div> <div className="flex gap-5 items-center " >
+                                            <i onClick={qty>1 ? ()=>decrement(id) :()=>remove(i) } className="fi fi-tr-square-minus cursor-pointer"></i>
+                                            <span>{qty}</span>
+                                            <i onClick={()=>increment(id)} className="fi fi-tr-square-plus cursor-pointer" ></i>                                           
+                                            <p className="text-gray-700 font-semibold text-sm sm:text-lg w-14">  ₹  {defaultPrice / 100 || price / 100}{" "} </p>
                                             <i onClick={()=>remove(i)} className="fi fi-ss-trash-xmark text-red-500"></i>
-                                            <p className="text-gray-700 font-semibold text-sm sm:text-lg">  ₹  {defaultPrice / 100 || price / 100}{" "} </p>
+
                                         </div>
                                     </div>
 
