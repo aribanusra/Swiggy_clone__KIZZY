@@ -17,7 +17,7 @@ const Onyourmindsearch = () => {
 
 
     async function fetchdata() {
-        const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&collection=${idd}&tags=layout_CCS_${menu}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`)
+        const data = await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&collection=${idd}&tags=layout_CCS_${menu}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`)
         const result = await data.json()
         let headingd = result?.data?.cards?.find((item) => item?.card?.card?.['@type'].includes('widgets.v2.CollectionMasthead')).card?.card?.title
         setheading(headingd)

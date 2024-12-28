@@ -24,7 +24,7 @@ const RestaurantMenu = () => {
 
   const fetchData = async () => {
     const json = await fetch(
-      `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.474598&lng=80.332228&restaurantId=${id
+      `https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.474598&lng=80.332228&restaurantId=${id
         .split("t")
         .at(-1)}&submitAction=ENTER`
         
